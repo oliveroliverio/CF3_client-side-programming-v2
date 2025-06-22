@@ -1,0 +1,25 @@
+{
+  "name": "cf3_client-side-programming-v2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "download_img": "node scripts/download_images.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliveroliverio/CF3_client-side-programming-v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliveroliverio/CF3_client-side-programming-v2/issues"
+  },
+  "homepage": "https://github.com/oliveroliverio/CF3_client-side-programming-v2#readme",
+  "description": "",
+  "devDependencies": {
+    "chalk": "^5.4.1",
+    "ora": "^8.2.0"
+  }
+}
