@@ -64,7 +64,7 @@ Let’s take a look at why React is the most suitable framework for your myFlix 
 
 React is also user-friendly, readable, and has comprehensive documentation and tutorials so you can start using it without too much guesswork. It’s also the most popular JavaScript framework available right now, which means you’ll be able to find plenty of resources online should you need them.
 
-![Comparing React, Angular, and Vue January to September 2022](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/react-ang-vue-trend-comparison.png)
+![Comparing React, Angular, and Vue January to September 2022](images-md/misc/react-ang-vue-trend-comparison_1750632154363.png)
 
 
 ###### Figure 1. Source: Google Trends
@@ -87,7 +87,7 @@ Instead of writing the code for each movie item over and over again, you could u
 
 By naming the component semantically (e.g., `MovieCard`), the code is kept accessible, efficient, and usable. Rather than wild herds of `div`s living everywhere in your app, you’ll have self-explanatory `MovieCard` components! (You may remember semantic code from your Intro to Frontend Development course, when you made the HTML and CSS for your portfolio website semantic).
 
-![MainView with several MovieCards, and subsequently a list of movies](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/moviecards-in-mainview-oscars.png)
+![MainView with several MovieCards, and subsequently a list of movies](images-md/misc/moviecards-in-mainview-oscars_1750632154762.png)
 
 
 ###### Figure 2. MovieCard (movies) list.
@@ -120,7 +120,7 @@ You can perform these operations manually by running the appropriate commands in
 
 Think of the build tool like the music conductor of the build process. The build tool instructs all of the orchestra's musicians, or individual tools, to work in tandem to complete the build process. You’ll be exploring build tools in more detail later in this Exercise, but before you do, let’s pause and take a closer look at the processes just outlined.
 
-![A conductor leading an orchestra](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/conductor-orchestra.png)
+![A conductor leading an orchestra](images-md/misc/conductor-orchestra_1750632154997.png)
 
 
 ###### Figure 3. Build tools can be thought of as orchestral conductors.
@@ -130,7 +130,7 @@ Think of the build tool like the music conductor of the build process. The build
 
 Transpilation involves transforming code from one programming language to another. Sometimes, whatever’s going to be executing the code (i.e., the runtime environment) can’t read the code as is, so this extra step is required to change the code into a language the processor can understand.
 
-![A code pane on the left with ES6 code next to a code panel on the right with the same code but in ES5](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/transpile-javascript.png)
+![A code pane on the left with ES6 code next to a code panel on the right with the same code but in ES5](images-md/misc/transpile-javascript_1750632155307.png)
 
 
 ###### Figure 4. Screenshot of the online Babel JavaScript transpiler.
@@ -208,7 +208,7 @@ Minification is the process of removing data from a code file that's not needed 
 
 Minifying code helps to optimize an app’s performance because smaller, lighter files load faster than regular ones. For a look at just what the minification process involves, try playing around with [this online JavaScript Minifier](https://www.minifier.org/). Write or copy-paste some code in the input field, click the “Minify” button, and see what happens to the code!
 
-![Pane with original code on the left and pane with minified code on the right](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/minification.png)
+![Pane with original code on the left and pane with minified code on the right](images-md/misc/minification_1750632155496.png)
 
 
 ###### Figure 5. Minified code.
@@ -275,7 +275,7 @@ VSCode comes with handy built-in tools and utilities such as:
 
 - Automatic Error-Highlighting: VSCode highlights JavaScript syntax errors in a file by adding a red marker ~ close to where it thinks the error exists (for instance, the right bracket is missing in the first line in Figure 6). It will also highlight the name of the file with errors in the left sidebar and display the number of syntax errors it contains, as shown with the “server.js” filename (currently displaying “2”):
 
-![Error-highlighting in VSCode](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/vscode-errors.png)
+![Error-highlighting in VSCode](images-md/misc/vscode-errors_1750632155782.png)
 
 
 ###### Figure 6.
@@ -315,7 +315,7 @@ Now that you understand what a build tool is, let’s take a look at the tool yo
 
 #### Parcel: A Build Tool
 
-![The Parcel homepage](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/parcel-home.png)
+![The Parcel homepage](images-md/misc/parcel-home_1750632156049.png)
 
 
 ###### Figure 7.
@@ -335,7 +335,7 @@ What happens behind the scenes is also pretty straightforward: Parcel takes an e
 
 As just outlined, Parcel builds your code, serves it, and refreshes the browser every time your code changes. This important step in the development process is known as live reloading. What this means in practice is that each time you make a change to your code, the build system automatically triggers a page refresh in your browser. This can dramatically increase your development speed as you no longer need to switch back and forth between your code editor and your browser—the latter is updated automatically.
 
-![Diagram outlining the Parcel live reload process](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/parcel-live-reload.png)
+![Diagram outlining the Parcel live reload process](images-md/misc/parcel-live-reload_1750632156364.png)
 
 
 ###### Figure 8. Source: LogRocket
@@ -345,7 +345,7 @@ As just outlined, Parcel builds your code, serves it, and refreshes the browser 
 
 For this Achievement, you’ll create a new GitHub repository separate from the one you used for the backend implementation of your myFlix app. Open GitHub Desktop. In the File menu, select New Repository... to bring up this form:
 
-![Create a new repository](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/create-repo.png)
+![Create a new repository](images-md/misc/create-repo_1750632156605.png)
 
 
 ###### Figure 9.
@@ -354,14 +354,14 @@ In the Name field, type “myFlix-client”—this will be the new local project
 
 Now, click the blue Publish repository button:
 
-![Publish Repository button.](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/publish-repo.png)
+![Publish Repository button.](images-md/misc/publish-repo_1750632156835.png)
 
 
 ###### Figure 10.
 
 This will bring up the final window. Make sure that the online repository name is “myFlix-client” and that the Keep this code private box is unchecked. Finally, hit Publish repository:
 
-![Final public repository window.](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/publish-repo-final.png)
+![Final public repository window.](images-md/misc/publish-repo-final_1750632157127.png)
 
 
 ###### Figure 11.
@@ -542,7 +542,7 @@ You’ll notice that Parcel installs more dependencies based on the files it fin
 
 Now that you’ve built your project, let’s take a look at it! To do so, open your browser and navigate to “[http://localhost:1234”](http://localhost:1234%E2%80%9D) to see the rendered result. Do you get the following greeting?
 
-![The words "Good Morning" in blue print on an otherwise white browser screen.](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.2/browser-build-test.png)
+![The words "Good Morning" in blue print on an otherwise white browser screen.](images-md/ui/browser-build-test_1750632157311.png)
 
 
 ###### Figure 12.
@@ -618,20 +618,20 @@ Rubric
 
 Refer to the categories below to see how to meet the requirements of the approved stage
 
-![](https://cdn.careerfoundry.com/assets/rubrics/not_yet-c9fb80e521507759d546f847f8a65a00c66f2c8ec7ece4e37f98c25aa122778c.svg)
+![](images-md/icons/not_yet-c9fb80e521507759d546f847f8a65a00c66f2c8ec7ece4e37f98c25aa122778c_1750632157477.svg)
 
 
 - myFlix-client directory has been set up using the project structure outlined in the task directions; AND
 - “package.json” file has been created with most or all of the required dependencies; BUT
 - index files and/or README file missing or contain invalid content
 
-![](https://cdn.careerfoundry.com/assets/rubrics/almost_there-f4bb1c077a0a826e7d4e3ecb72859fc401d362d9bd49c0658f4fd85c4a047a87.svg)
+![](images-md/icons/almost_there-f4bb1c077a0a826e7d4e3ecb72859fc401d362d9bd49c0658f4fd85c4a047a87_1750632157507.svg)
 
 
 - myFlix-client directory has been set up using the project structure outlined in the task directions; “package.json” file has the correct dependencies installed; 3 index files have been created; the project has been successfully built using Parcel; BUT
 - README file or index files contain invalid content
 
-![](https://cdn.careerfoundry.com/assets/rubrics/approved-7dfdcf59318cf52fcbd1333d8b71bf7a2bde35b6e0b753ac975349982495e0b4.svg)
+![](images-md/icons/approved-7dfdcf59318cf52fcbd1333d8b71bf7a2bde35b6e0b753ac975349982495e0b4_1750632157538.svg)
 
 
 - myFlix-client directory has been set up using the project structure outlined in the task directions
@@ -647,7 +647,7 @@ Check out recently submitted work by other students to get an idea of what’s r
 
 EVALUATION COMPLETE
 
-![](https://coach-courses-us.s3.amazonaws.com/users/photos/thumb/41717.jpg?1741844722)
+![](images-md/avatars/41717_1750632157570.jpg)
 
 Jorge Armando Cortes Montiel  Evaluated Submission for Task 3.2
 
@@ -675,7 +675,7 @@ Talk to you soon, Oliver, and keep up the excellent work. ✌🏼
 
 Approved
 
-![Lauren, Sarah, Korina, CareerFoundry Student Advisor](https://images.careerfoundry.com/public/team/student_advisors_july_2020.jpg)
+![Lauren, Sarah, Korina, CareerFoundry Student Advisor](images-md/misc/student_advisors_july_2020_1750632157899.jpg)
 
 Student Advisors
 
@@ -687,7 +687,7 @@ How motivated do you feel after receiving the feedback from your tutor/mentor?
 
 Did your mentor or tutor respond within the expected timeframe? (24hrs for tutors; 48 hrs for mentors)
 
-![](https://coach-courses-us.s3.amazonaws.com/users/photos/thumb/67730.jpg?1721412873)
+![](images-md/avatars/67730_1750632158021.jpg)
 
 Oliver Oliverio  Submitted Something for Task 3.2
 
@@ -695,7 +695,7 @@ May 13, 2025 at 11:47 AM
 
 submitting exercise 3.2
 
-![](https://coach-courses-us.s3.amazonaws.com/users/photos/thumb/51945.jpg?1660008090)
+![](images-md/avatars/51945_1750632158123.jpg)
 
 Vivek Maskara
 
@@ -723,7 +723,7 @@ But, I would recommend scheduling a call with your mentor to debug this further.
 
 A Little More
 
-![](https://coach-courses-us.s3.amazonaws.com/users/photos/thumb/67730.jpg?1721412873)
+![](images-md/avatars/67730_1750632158235.jpg)
 
 Oliver Oliverio  Submitted Something for Task 3.2
 

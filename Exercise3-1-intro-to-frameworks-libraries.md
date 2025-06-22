@@ -316,21 +316,21 @@ Rubric
 
 Refer to the categories below to see how to meet the requirements of the approved stage
 
-![](https://cdn.careerfoundry.com/assets/rubrics/not_yet-c9fb80e521507759d546f847f8a65a00c66f2c8ec7ece4e37f98c25aa122778c.svg)
+![](images-md/icons/not_yet-c9fb80e521507759d546f847f8a65a00c66f2c8ec7ece4e37f98c25aa122778c_1750632153118.svg)
 
 
 - Submission proposes an appropriate library or framework for at least 2 of the given scenarios; BUT
 - Reasons for choice of library or framework are incomplete or missing; OR
 - Doesn't identify advantages of choosing React for the myFlix app
 
-![](https://cdn.careerfoundry.com/assets/rubrics/almost_there-f4bb1c077a0a826e7d4e3ecb72859fc401d362d9bd49c0658f4fd85c4a047a87.svg)
+![](images-md/icons/almost_there-f4bb1c077a0a826e7d4e3ecb72859fc401d362d9bd49c0658f4fd85c4a047a87_1750632153522.svg)
 
 
 - Submission proposes a suitable library or framework for each scenario; BUT
 - Doesn't identify at least one characteristic that makes each proposed library or framework suitable (possible topics could include e.g., scalability, testing, or maintainability); AND
 - Outlines the benefits of choosing React for the myFlix app
 
-![](https://cdn.careerfoundry.com/assets/rubrics/approved-7dfdcf59318cf52fcbd1333d8b71bf7a2bde35b6e0b753ac975349982495e0b4.svg)
+![](images-md/icons/approved-7dfdcf59318cf52fcbd1333d8b71bf7a2bde35b6e0b753ac975349982495e0b4_1750632154024.svg)
 
 
 - Submission proposes a suitable library or framework for each scenario; AND
