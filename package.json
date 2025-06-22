@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "download_img": "node scripts/download_images.js"
+    "download_img": "node scripts/download_md_images.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   "description": "",
   "devDependencies": {
     "chalk": "^5.4.1",
-    "ora": "^8.2.0"
+    "fs-extra": "^11.3.0",
+    "ora": "^8.2.0",
+    "path-exists": "^5.0.0"
   }
 }
