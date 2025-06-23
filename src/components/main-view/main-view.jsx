@@ -1,3 +1,4 @@
+import { BookCard } from "../book-card/book-card";
 let books = [
     { id: 1, title: "Eloquent JavaScript" },
     { id: 2, title: "Mastering JavaScript Functional Programming" },
@@ -11,7 +12,7 @@ export const MainView = () => {
     return (
         <div>
             {books.map((b) => {
-                return <div key={b.id}>{b.title}</div>
+                return <BookCard key={b.id} title={b.title} />
             })}
         </div>
     );
