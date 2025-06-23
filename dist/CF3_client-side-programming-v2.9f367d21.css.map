@@ -1,0 +1,1 @@
+{"mappings":"AAIA","sources":["src/index.scss"],"sourcesContent":["/** @format */\n\n$color: steelblue;\n\n.my-flix {\n\tcolor: $color;\n}\n"],"names":[],"version":3,"file":"CF3_client-side-programming-v2.9f367d21.css.map","sourceRoot":"/__parcel_source_root/"}
