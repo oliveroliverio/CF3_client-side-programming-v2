@@ -27285,26 +27285,41 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MainView", ()=>MainView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 let books = [
-    "Eloquent JavaScript",
-    "Mastering JavaScript Functional Programming",
-    "JavaScript: The Good Parts",
-    "JavaScript: The Definitive Guide",
-    "The Road to React"
+    {
+        id: 1,
+        title: "Eloquent JavaScript"
+    },
+    {
+        id: 2,
+        title: "Mastering JavaScript Functional Programming"
+    },
+    {
+        id: 3,
+        title: "JavaScript: The Good Parts"
+    },
+    {
+        id: 4,
+        title: "JavaScript: The Definitive Guide"
+    },
+    {
+        id: 5,
+        title: "The Road to React"
+    }
 ];
 const MainView = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: books.map((b)=>{
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: b
-            }, void 0, false, {
+                children: b.title
+            }, b.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 13,
+                lineNumber: 14,
                 columnNumber: 24
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 11,
+        lineNumber: 12,
         columnNumber: 9
     }, undefined);
 };

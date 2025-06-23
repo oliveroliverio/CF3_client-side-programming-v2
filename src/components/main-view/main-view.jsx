@@ -1,16 +1,17 @@
 let books = [
-    "Eloquent JavaScript",
-    "Mastering JavaScript Functional Programming",
-    "JavaScript: The Good Parts",
-    "JavaScript: The Definitive Guide",
-    "The Road to React",
-]
+    { id: 1, title: "Eloquent JavaScript" },
+    { id: 2, title: "Mastering JavaScript Functional Programming" },
+    { id: 3, title: "JavaScript: The Good Parts" },
+    { id: 4, title: "JavaScript: The Definitive Guide" },
+    { id: 5, title: "The Road to React" },
+];
+
 
 export const MainView = () => {
     return (
         <div>
             {books.map((b) => {
-                return <div>{b}</div>
+                return <div key={b.id}>{b.title}</div>
             })}
         </div>
     );
