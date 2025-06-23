@@ -27285,45 +27285,49 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MainView", ()=>MainView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _bookCard = require("../book-card/book-card");
-let books = [
-    {
-        id: 1,
-        title: "Eloquent JavaScript"
-    },
-    {
-        id: 2,
-        title: "Mastering JavaScript Functional Programming"
-    },
-    {
-        id: 3,
-        title: "JavaScript: The Good Parts"
-    },
-    {
-        id: 4,
-        title: "JavaScript: The Definitive Guide"
-    },
-    {
-        id: 5,
-        title: "The Road to React"
-    }
-];
+var _react = require("react");
+var _s = $RefreshSig$();
 const MainView = ()=>{
+    _s();
+    const [books, setBooks] = (0, _react.useState)([
+        {
+            id: 1,
+            title: "Eloquent JavaScript"
+        },
+        {
+            id: 2,
+            title: "Mastering JavaScript Functional Programming"
+        },
+        {
+            id: 3,
+            title: "JavaScript: The Good Parts"
+        },
+        {
+            id: 4,
+            title: "JavaScript: The Definitive Guide"
+        },
+        {
+            id: 5,
+            title: "The Road to React"
+        }
+    ]);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: books.map((b)=>{
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
                 title: b.title
             }, b.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 15,
+                lineNumber: 18,
                 columnNumber: 24
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 13,
+        lineNumber: 16,
         columnNumber: 9
     }, undefined);
 };
+_s(MainView, "j0Dmbif+0xKh7uMuvjk0cAdU9T4=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -27333,7 +27337,7 @@ $RefreshReg$(_c, "MainView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","../book-card/book-card":"VwMt4"}],"VwMt4":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","../book-card/book-card":"VwMt4","react":"jMk1U"}],"VwMt4":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$3964 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$3964.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
