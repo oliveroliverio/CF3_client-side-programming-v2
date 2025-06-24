@@ -10,6 +10,7 @@ export const BookView = ({ book }) => {
                 <span>Author: </span>
                 <span>{book.author}</span>
             </div>
+
         </>
     )
 }
