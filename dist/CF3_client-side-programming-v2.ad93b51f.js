@@ -27321,23 +27321,31 @@ const MainView = ()=>{
             author: "Robin Wieruch"
         }
     ]);
+    const [selectedBook, setSelectedBook] = (0, _react.useState)(null);
+    if (selectedBook) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(BookView, {
+        book: selectedBook
+    }, void 0, false, {
+        fileName: "src/components/main-view/main-view.jsx",
+        lineNumber: 48,
+        columnNumber: 16
+    }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: books.map((b)=>{
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
                 title: b.title
             }, b.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 48,
+                lineNumber: 54,
                 columnNumber: 24
             }, undefined);
         })
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 46,
+        lineNumber: 52,
         columnNumber: 9
     }, undefined);
 };
-_s(MainView, "03hZk4pR7OTqtHmd/TRgpflCc8A=");
+_s(MainView, "chuSyZArYKhvjS4cDO7kt8PlMSM=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
