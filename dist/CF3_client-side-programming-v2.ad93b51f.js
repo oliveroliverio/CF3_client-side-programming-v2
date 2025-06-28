@@ -160,11 +160,11 @@
       });
     }
   }
-})({"bXaGC":[function(require,module,exports,__globalThis) {
+})({"2aNSd":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
-var HMR_SERVER_PORT = 1234;
+var HMR_SERVER_PORT = 57112;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -27285,6 +27285,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MainView", ()=>MainView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _bookCard = require("../book-card/book-card");
+var _bookView = require("../book-view/book-view");
 var _react = require("react");
 var _s = $RefreshSig$();
 const MainView = ()=>{
@@ -27322,27 +27323,27 @@ const MainView = ()=>{
         }
     ]);
     const [selectedBook, setSelectedBook] = (0, _react.useState)(null);
-    if (selectedBook) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(BookView, {
-        book: selectedBook
+    if (selectedBook) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookView.BookView), {
+        selectedBook: selectedBook,
+        onBackClick: ()=>setSelectedBook(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 48,
+        lineNumber: 49,
         columnNumber: 16
     }, undefined);
+    // if no selected book (or if set to null when user clicks back button), show main view
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        children: books.map((b)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
-                title: b.title,
-                onBookClick: (newlySelectedBook)=>setSelectedBook(newlySelectedBook)
-            }, b.id, false, {
+        children: books.map((book)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
+                book: book,
+                setSelectedBook: setSelectedBook
+            }, book.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 54,
-                columnNumber: 24
-            }, undefined);
-        })
+                lineNumber: 55,
+                columnNumber: 17
+            }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 52,
+        lineNumber: 53,
         columnNumber: 9
     }, undefined);
 };
@@ -27356,7 +27357,7 @@ $RefreshReg$(_c, "MainView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","../book-card/book-card":"VwMt4","react":"jMk1U"}],"VwMt4":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","../book-card/book-card":"VwMt4","react":"jMk1U","../book-view/book-view":"IO91x"}],"VwMt4":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$3964 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$3964.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -27368,8 +27369,46 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BookCard", ()=>BookCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const BookCard = ({ book, onBookClick })=>{
-    return;
+const BookCard = ({ book, setSelectedBook })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        onClick: ()=>setSelectedBook(book),
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: book.image,
+                alt: book.title
+            }, void 0, false, {
+                fileName: "src/components/book-card/book-card.jsx",
+                lineNumber: 4,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                        children: book.title
+                    }, void 0, false, {
+                        fileName: "src/components/book-card/book-card.jsx",
+                        lineNumber: 6,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: book.author
+                    }, void 0, false, {
+                        fileName: "src/components/book-card/book-card.jsx",
+                        lineNumber: 7,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/book-card/book-card.jsx",
+                lineNumber: 5,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/book-card/book-card.jsx",
+        lineNumber: 3,
+        columnNumber: 9
+    }, undefined);
 };
 _c = BookCard;
 var _c;
@@ -27380,6 +27419,93 @@ $RefreshReg$(_c, "BookCard");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk"}]},["bXaGC","gYcKb"], "gYcKb", "parcelRequireb4fc", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk"}],"IO91x":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$1612 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$1612.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$1612.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "BookView", ()=>BookView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+const BookView = ({ selectedBook, onBackClick })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: selectedBook.image,
+                alt: ""
+            }, void 0, false, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 4,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Title: "
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 6,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: selectedBook.title
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 7,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 5,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: "Author: "
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 10,
+                        columnNumber: 17
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                        children: selectedBook.author
+                    }, void 0, false, {
+                        fileName: "src/components/book-view/book-view.jsx",
+                        lineNumber: 11,
+                        columnNumber: 17
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 9,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: onBackClick,
+                children: "Back"
+            }, void 0, false, {
+                fileName: "src/components/book-view/book-view.jsx",
+                lineNumber: 13,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_c = BookView;
+var _c;
+$RefreshReg$(_c, "BookView");
+
+  $parcel$ReactRefreshHelpers$1612.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk"}]},["2aNSd","gYcKb"], "gYcKb", "parcelRequireb4fc", {}, null, null, "http://localhost:57112")
 
 //# sourceMappingURL=CF3_client-side-programming-v2.ad93b51f.js.map

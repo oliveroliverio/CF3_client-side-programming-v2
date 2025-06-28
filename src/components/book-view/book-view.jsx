@@ -1,4 +1,4 @@
-export const BookView = ({ selectedBook }) => {
+export const BookView = ({ selectedBook, onBackClick }) => {
     return (
         <>
             <img src={selectedBook.image} alt="" />
@@ -10,7 +10,7 @@ export const BookView = ({ selectedBook }) => {
                 <span>Author: </span>
                 <span>{selectedBook.author}</span>
             </div>
-
+            <button onClick={onBackClick}>Back</button>
         </>
     )
 }

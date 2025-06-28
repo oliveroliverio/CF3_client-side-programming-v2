@@ -1,4 +1,5 @@
 import { BookCard } from "../book-card/book-card";
+import { BookView } from "../book-view/book-view";
 import { useState } from "react";
 
 
@@ -45,9 +46,9 @@ export const MainView = () => {
     const [selectedBook, setSelectedBook] = useState(null)
 
     if (selectedBook) {
-        return <BookView selectedBook={selectedBook} />
+        return <BookView selectedBook={selectedBook} onBackClick={() => setSelectedBook(null)} />
     }
-
+    // if no selected book (or if set to null when user clicks back button), show main view
     return (
         <div>
             {books.map((book) => (
