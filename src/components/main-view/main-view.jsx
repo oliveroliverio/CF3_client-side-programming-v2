@@ -50,9 +50,13 @@ export const MainView = () => {
 
     return (
         <div>
-            {books.map((b) => {
-                return <BookCard key={b.id} title={b.title} />
-            })}
+            {books.map((book) => (
+                <BookCard
+                    key={book.id}
+                    book={book}
+                    onBookClick={setSelectedBook}
+                />
+            ))}
         </div>
     );
 };

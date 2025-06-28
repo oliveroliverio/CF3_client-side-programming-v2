@@ -27332,7 +27332,8 @@ const MainView = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: books.map((b)=>{
             return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookCard.BookCard), {
-                title: b.title
+                title: b.title,
+                onBookClick: (newlySelectedBook)=>setSelectedBook(newlySelectedBook)
             }, b.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 54,
@@ -27367,41 +27368,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "BookCard", ()=>BookCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
-const BookCard = ({ title, image_url, author })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                src: image_url,
-                alt: ""
-            }, void 0, false, {
-                fileName: "src/components/book-card/book-card.jsx",
-                lineNumber: 3,
-                columnNumber: 9
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
-                        children: title
-                    }, void 0, false, {
-                        fileName: "src/components/book-card/book-card.jsx",
-                        lineNumber: 5,
-                        columnNumber: 13
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                        children: author
-                    }, void 0, false, {
-                        fileName: "src/components/book-card/book-card.jsx",
-                        lineNumber: 6,
-                        columnNumber: 13
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/components/book-card/book-card.jsx",
-                lineNumber: 4,
-                columnNumber: 9
-            }, undefined)
-        ]
-    }, void 0, true);
+const BookCard = ({ book, onBookClick })=>{
+    return;
 };
 _c = BookCard;
 var _c;

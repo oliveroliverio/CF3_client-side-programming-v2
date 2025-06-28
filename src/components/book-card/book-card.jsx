@@ -1,9 +1,11 @@
-export const BookCard = ({ title, image_url, author }) => {
-    return <>
-        <img src={image_url} alt="" />
-        <div>
-            <h2 >{title}</h2>
-            <span>{author}</span>
+export const BookCard = ({ book, onBookClick }) => {
+    return (
+        <div onClick={() => onBookClick(book)}>
+            <img src={book.image} alt={book.title} />
+            <div>
+                <h2>{book.title}</h2>
+                <span>{book.author}</span>
+            </div>
         </div>
-    </>
+    );
 };
