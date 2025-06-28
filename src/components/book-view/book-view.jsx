@@ -1,14 +1,14 @@
-export const BookView = ({ book }) => {
+export const BookView = ({ selectedBook }) => {
     return (
         <>
-            <img src={book.image} alt="" />
+            <img src={selectedBook.image} alt="" />
             <div>
                 <span>Title: </span>
-                <span>{book.title}</span>
+                <span>{selectedBook.title}</span>
             </div>
             <div>
                 <span>Author: </span>
-                <span>{book.author}</span>
+                <span>{selectedBook.author}</span>
             </div>
 
         </>

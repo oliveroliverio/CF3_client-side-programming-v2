@@ -45,7 +45,7 @@ export const MainView = () => {
     const [selectedBook, setSelectedBook] = useState(null)
 
     if (selectedBook) {
-        return <BookView book={selectedBook} />
+        return <BookView selectedBook={selectedBook} />
     }
 
     return (
@@ -54,7 +54,7 @@ export const MainView = () => {
                 <BookCard
                     key={book.id}
                     book={book}
-                    onBookClick={setSelectedBook}
+                    setSelectedBook={setSelectedBook}
                 />
             ))}
         </div>
