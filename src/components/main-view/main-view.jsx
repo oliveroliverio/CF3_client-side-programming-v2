@@ -1,61 +1,51 @@
-import { BookCard } from "../book-card/book-card";
-import { BookView } from "../book-view/book-view";
+import { MovieCard } from "../movie-card/movie-card";
+import { MovieView } from "../movie-view/movie-view";
 import { useState } from "react";
 
-
-
 export const MainView = () => {
-    const [books, setBooks] = useState([
+    const [movies, setMovies] = useState([
         {
             id: 1,
-            title: "Eloquent JavaScript",
-            image:
-                "https://images-na.ssl-images-amazon.com/images/I/51InjRPaF7L._SX377_BO1,204,203,200_.jpg",
-            author: "Marijn Haverbeke"
+            title: "The Shawshank Redemption",
+            imageUrl: "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg",
+            description: "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.",
+            genre: "Drama",
+            director: "Frank Darabont",
+            releaseYear: "1994"
         },
         {
             id: 2,
-            title: "Mastering JavaScript Functional Programming",
-            image:
-                "https://images-na.ssl-images-amazon.com/images/I/51WAikRq37L._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-            author: "Federico Kereki"
+            title: "The Godfather",
+            imageUrl: "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+            description: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+            genre: "Crime, Drama",
+            director: "Francis Ford Coppola",
+            releaseYear: "1972"
         },
         {
             id: 3,
-            title: "JavaScript: The Good Parts",
-            image:
-                "https://images-na.ssl-images-amazon.com/images/I/5131OWtQRaL._SX381_BO1,204,203,200_.jpg",
-            author: "Douglas Crockford"
-        },
-        {
-            id: 4,
-            title: "JavaScript: The Definitive Guide",
-            image:
-                "https://images-na.ssl-images-amazon.com/images/I/51HbNW6RzhL._SX218_BO1,204,203,200_QL40_FMwebp_.jpg",
-            author: "David Flanagan"
-        },
-        {
-            id: 5,
-            title: "The Road to React",
-            image:
-                "https://images-na.ssl-images-amazon.com/images/I/41MBLi5a4jL._SX384_BO1,204,203,200_.jpg",
-            author: "Robin Wieruch"
+            title: "The Dark Knight",
+            imageUrl: "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
+            description: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+            genre: "Action, Crime, Drama",
+            director: "Christopher Nolan",
+            releaseYear: "2008"
         }
-    ])
+    ]);
 
-    const [selectedBook, setSelectedBook] = useState(null)
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
-    if (selectedBook) {
-        return <BookView selectedBook={selectedBook} onBackClick={() => setSelectedBook(null)} />
+    if (selectedMovie) {
+        return <MovieView selectedMovie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />;
     }
-    // if no selected book (or if set to null when user clicks back button), show main view
+
     return (
-        <div>
-            {books.map((book) => (
-                <BookCard
-                    key={book.id}
-                    book={book}
-                    setSelectedBook={setSelectedBook}
+        <div className="main-view">
+            {movies.map((movie) => (
+                <MovieCard
+                    key={movie.id}
+                    movie={movie}
+                    setSelectedMovie={setSelectedMovie}
                 />
             ))}
         </div>
