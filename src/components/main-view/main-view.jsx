@@ -9,14 +9,10 @@ export const MainView = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        console.log("Fetching from:", HEROKU_API_URL + '/movies');
         fetch(HEROKU_API_URL + '/movies')
-            .then(response => {
-                console.log("Response status:", response.status);
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
-                console.log("API data received:", data);
+                console.log("Movie data structure:", JSON.stringify(data[0], null, 2));
                 setMovies(data);
             })
             .catch(error => console.error("Error fetching movies:", error));
