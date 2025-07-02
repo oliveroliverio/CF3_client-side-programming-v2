@@ -11,9 +11,13 @@ export const MainView = () => {
     const [similarMovies, setSimilarMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
     const [user, setUser] = useState(null);
+    const [token, setToken] = useState(null);
 
     useEffect(() => {
-        fetch(HEROKU_API_URL + '/movies')
+        if (!token) return;
+        fetch(HEROKU_API_URL + '/movies', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
             .then(response => response.json())
             .then(data => {
                 console.log("Movie data structure:", JSON.stringify(data[0], null, 2));
@@ -24,7 +28,10 @@ export const MainView = () => {
 
 
     if (!user) {
-        return <LoginView />;
+        return <LoginView onLoggedIn={(user, token) => {
+            setUser(user);
+            setToken(token);
+        }} />;
     }
 
     if (selectedMovie) {
