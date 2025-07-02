@@ -2,6 +2,7 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { useState, useEffect } from "react";
 import { LoginView } from "../login-view/login-view";
+import { SignupView } from "../signup-view/signup-view";
 
 export const MainView = () => {
     // const HEROKU_API_URL = process.env.HEROKU_API_URL;
@@ -28,10 +29,16 @@ export const MainView = () => {
 
 
     if (!user) {
-        return <LoginView onLoggedIn={(user, token) => {
-            setUser(user);
-            setToken(token);
-        }} />;
+        return (
+            <>
+                <LoginView onLoggedIn={(user, token) => {
+                    setUser(user);
+                    setToken(token);
+                }} />
+                or
+                <SignupView />
+            </>
+        );
     }
 
     if (selectedMovie) {

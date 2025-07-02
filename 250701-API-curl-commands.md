@@ -21,3 +21,7 @@ curl -s -X GET -H "Content-Type: application/json" https://myflix2-54ee4b2daeee.
 curl -s -X POST -H "Content-Type: application/json" -d '{"username": "indielover", "password": "moonlightsonata"}' https://myflix2-54ee4b2daeee.herokuapp.com/users/login
 ```
 
+- curl command to add user (sign up)
+```
+curl -s -X POST -H "Content-Type: application/json" -d '{"username": "indielover2", "password": "moonlightsonata!2", "email": "indielover@indielover.com", "birthday": "1990-01-01"}' https://myflix2-54ee4b2daeee.herokuapp.com/users
+```
