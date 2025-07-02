@@ -1,8 +1,9 @@
 {
   "name": "cf3_client-side-programming-v2",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1",
     "download_img": "node scripts/download_md_images.js"
   },
@@ -18,10 +19,12 @@
   },
   "homepage": "https://github.com/oliveroliverio/CF3_client-side-programming-v2#readme",
   "description": "",
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
-    "chalk": "^5.4.1",
-    "fs-extra": "^11.3.0",
-    "ora": "^8.2.0",
-    "path-exists": "^5.0.0"
+    "@parcel/transformer-sass": "^2.15.4"
   }
 }

@@ -1,0 +1,128 @@
+/** @format */
+
+$primary-color: #032541;
+$secondary-color: #01b4e4;
+$background-color: #e8e8e8;
+$text-color: #333;
+$card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: $background-color;
+	margin: 0;
+	padding: 0;
+}
+
+.my-flix {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+
+	h1 {
+		color: $primary-color;
+		text-align: center;
+		margin-bottom: 30px;
+	}
+}
+
+.main-view {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 20px;
+}
+
+.movie-card {
+	background-color: white;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: $card-shadow;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+
+	&:hover {
+		transform: translateY(-5px);
+	}
+
+	.movie-poster {
+		height: 350px;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.movie-title {
+		padding: 15px;
+
+		h2 {
+			margin: 0;
+			font-size: 18px;
+			color: $text-color;
+		}
+	}
+}
+
+.movie-view {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+	}
+
+	.movie-poster {
+		flex: 0 0 300px;
+
+		img {
+			width: 100%;
+			border-radius: 8px;
+			box-shadow: $card-shadow;
+		}
+	}
+
+	.movie-details {
+		flex: 1;
+
+		.movie-title {
+			margin-bottom: 20px;
+
+			h2 {
+				color: $primary-color;
+				margin: 0 0 10px 0;
+				font-size: 24px;
+			}
+		}
+
+		div {
+			margin-bottom: 15px;
+
+			span:first-child {
+				font-weight: bold;
+				color: $primary-color;
+			}
+		}
+
+		.back-button {
+			background-color: $secondary-color;
+			color: white;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 4px;
+			cursor: pointer;
+			font-weight: bold;
+			margin-top: 20px;
+
+			&:hover {
+				background-color: darken($secondary-color, 10%);
+			}
+		}
+	}
+}
