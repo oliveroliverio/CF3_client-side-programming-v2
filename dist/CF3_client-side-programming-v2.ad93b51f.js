@@ -28502,14 +28502,17 @@ const SignupView = ()=>{
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)("");
     const [birthday, setBirthday] = (0, _react.useState)("");
+    const [error, setError] = (0, _react.useState)("");
     const handleSubmit = (event)=>{
         event.preventDefault();
+        setError(""); // Clear any previous errors
         const data = {
             username: username,
             password: password,
             email: email,
             birthday: birthday
         };
+        console.log("Sending signup data:", data);
         fetch("https://myflix2-54ee4b2daeee.herokuapp.com/users", {
             method: "POST",
             body: JSON.stringify(data),
@@ -28517,10 +28520,23 @@ const SignupView = ()=>{
                 "Content-Type": "application/json"
             }
         }).then((response)=>{
-            if (response.ok) {
+            console.log("Signup response status:", response.status);
+            if (response.ok) return response.json().then((data)=>{
+                console.log("Signup successful:", data);
                 alert("Signup successful");
                 window.location.reload();
-            } else alert("Signup failed");
+            });
+            else // Try to get error message from response
+            return response.json().then((err)=>{
+                console.error("Signup error:", err);
+                setError(err.error || "Signup failed");
+            }).catch((e)=>{
+                console.error("Error parsing response:", e);
+                setError(`Signup failed: ${response.status}`);
+            });
+        }).catch((e)=>{
+            console.error("Fetch error:", e);
+            setError(`Network error: ${e.message}`);
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
@@ -28529,8 +28545,16 @@ const SignupView = ()=>{
                 children: "Signup"
             }, void 0, false, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 37,
+                lineNumber: 57,
                 columnNumber: 13
+            }, undefined),
+            error && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "alert alert-danger",
+                children: error
+            }, void 0, false, {
+                fileName: "src/components/signup-view/signup-view.jsx",
+                lineNumber: 58,
+                columnNumber: 23
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("form", {
                 onSubmit: handleSubmit,
@@ -28546,13 +28570,13 @@ const SignupView = ()=>{
                                 minLength: "3"
                             }, void 0, false, {
                                 fileName: "src/components/signup-view/signup-view.jsx",
-                                lineNumber: 41,
+                                lineNumber: 62,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 39,
+                        lineNumber: 60,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28565,13 +28589,13 @@ const SignupView = ()=>{
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/signup-view/signup-view.jsx",
-                                lineNumber: 51,
+                                lineNumber: 72,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 49,
+                        lineNumber: 70,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28584,13 +28608,13 @@ const SignupView = ()=>{
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/signup-view/signup-view.jsx",
-                                lineNumber: 60,
+                                lineNumber: 81,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 58,
+                        lineNumber: 79,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("label", {
@@ -28603,13 +28627,13 @@ const SignupView = ()=>{
                                 required: true
                             }, void 0, false, {
                                 fileName: "src/components/signup-view/signup-view.jsx",
-                                lineNumber: 69,
+                                lineNumber: 90,
                                 columnNumber: 21
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 67,
+                        lineNumber: 88,
                         columnNumber: 17
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
@@ -28617,19 +28641,19 @@ const SignupView = ()=>{
                         children: "Submit"
                     }, void 0, false, {
                         fileName: "src/components/signup-view/signup-view.jsx",
-                        lineNumber: 76,
+                        lineNumber: 97,
                         columnNumber: 17
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/signup-view/signup-view.jsx",
-                lineNumber: 38,
+                lineNumber: 59,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(SignupView, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
+_s(SignupView, "G9e/mpmxZKDZdNm9z9Il4q7ng5U=");
 _c = SignupView;
 var _c;
 $RefreshReg$(_c, "SignupView");
