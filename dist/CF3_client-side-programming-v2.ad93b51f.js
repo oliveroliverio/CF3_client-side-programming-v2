@@ -160,11 +160,11 @@
       });
     }
   }
-})({"1E5Bt":[function(require,module,exports,__globalThis) {
+})({"k32NT":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = null;
-var HMR_SERVER_PORT = 53386;
+var HMR_PORT = 1234;
+var HMR_SERVER_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -24981,6 +24981,7 @@ var _movieView = require("../movie-view/movie-view");
 var _react = require("react");
 var _loginView = require("../login-view/login-view");
 var _signupView = require("../signup-view/signup-view");
+var _navbarView = require("../navbar-view/navbar-view");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
@@ -24991,6 +24992,15 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     const [user, setUser] = (0, _react.useState)(null);
     const [token, setToken] = (0, _react.useState)(null);
+    (0, _react.useEffect)(()=>{
+        // Check if user is already logged in (from localStorage)
+        const storedUser = localStorage.getItem("user");
+        const storedToken = localStorage.getItem("token");
+        if (storedUser && storedToken) {
+            setUser(JSON.parse(storedUser));
+            setToken(storedToken);
+        }
+    }, []);
     (0, _react.useEffect)(()=>{
         if (!token) return;
         fetch(HEROKU_API_URL + '/movies', {
@@ -25004,6 +25014,16 @@ const MainView = ()=>{
     }, [
         token
     ]);
+    const handleLogout = ()=>{
+        // Clear user data from state
+        setUser(null);
+        setToken(null);
+        setSelectedMovie(null);
+        setMovies([]);
+        // Clear localStorage
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+    };
     if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
@@ -25013,51 +25033,57 @@ const MainView = ()=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 34,
+                lineNumber: 57,
                 columnNumber: 17
             }, undefined),
             "or",
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signupView.SignupView), {}, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 39,
+                lineNumber: 62,
                 columnNumber: 17
             }, undefined)
         ]
     }, void 0, true);
-    if (selectedMovie) {
-        // Find movies with the same genre as the selected movie
-        const similarMovies = movies.filter((movie)=>// Don't include the current movie
-            movie._id !== selectedMovie._id && // Match on genre
-            movie.genre && selectedMovie.genre && movie.genre.name === selectedMovie.genre.name).slice(0, 5); // Limit to 5 similar movies
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-            selectedMovie: selectedMovie,
-            onBackClick: ()=>setSelectedMovie(null),
-            similarMovies: similarMovies,
-            setSelectedMovie: setSelectedMovie
-        }, void 0, false, {
-            fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 55,
-            columnNumber: 13
-        }, undefined);
-    }
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "main-view",
-        children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                movie: movie,
-                setSelectedMovie: setSelectedMovie
-            }, movie._id, false, {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navbarView.NavbarView), {
+                user: user,
+                onLoggedOut: handleLogout
+            }, void 0, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 67,
+                lineNumber: 69,
+                columnNumber: 13
+            }, undefined),
+            selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+                selectedMovie: selectedMovie,
+                onBackClick: ()=>setSelectedMovie(null),
+                similarMovies: movies.filter((movie)=>// Don't include the current movie
+                    movie._id !== selectedMovie._id && // Match on genre
+                    movie.genre && selectedMovie.genre && movie.genre.name === selectedMovie.genre.name).slice(0, 5),
+                setSelectedMovie: setSelectedMovie
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 72,
                 columnNumber: 17
-            }, undefined))
-    }, void 0, false, {
-        fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 65,
-        columnNumber: 9
-    }, undefined);
-}; // No PropTypes needed for MainView since it doesn't receive props
- // If you convert it to receive props in the future, add them here
-_s(MainView, "uBW6fC7WyVhpt9cVVYywLZEMaNw=");
+            }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "main-view",
+                children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                        movie: movie,
+                        setSelectedMovie: setSelectedMovie
+                    }, movie._id, false, {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 87,
+                        columnNumber: 25
+                    }, undefined))
+            }, void 0, false, {
+                fileName: "src/components/main-view/main-view.jsx",
+                lineNumber: 85,
+                columnNumber: 17
+            }, undefined)
+        ]
+    }, void 0, true);
+};
+_s(MainView, "spRdlS8GDPxlwMSOkwzdNuZcdTI=");
 _c = MainView;
 var _c;
 $RefreshReg$(_c, "MainView");
@@ -25067,7 +25093,7 @@ $RefreshReg$(_c, "MainView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","../movie-card/movie-card":"6BY1s","../movie-view/movie-view":"dkfGy","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","../login-view/login-view":"8ru9P","../signup-view/signup-view":"nAl3Z"}],"6BY1s":[function(require,module,exports,__globalThis) {
+},{"react/jsx-dev-runtime":"dVPUn","../movie-card/movie-card":"6BY1s","../movie-view/movie-view":"dkfGy","react":"jMk1U","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","../login-view/login-view":"8ru9P","../signup-view/signup-view":"nAl3Z","../navbar-view/navbar-view":"dHpRw"}],"6BY1s":[function(require,module,exports,__globalThis) {
 var $parcel$ReactRefreshHelpers$f387 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 $parcel$ReactRefreshHelpers$f387.init();
 var prevRefreshReg = globalThis.$RefreshReg$;
@@ -28665,6 +28691,86 @@ $RefreshReg$(_c, "SignupView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","react":"jMk1U"}],"lJZlQ":[function() {},{}]},["1E5Bt","gYcKb"], "gYcKb", "parcelRequireb4fc", {}, null, null, "http://localhost:53386")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","react":"jMk1U"}],"dHpRw":[function(require,module,exports,__globalThis) {
+var $parcel$ReactRefreshHelpers$e4af = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+$parcel$ReactRefreshHelpers$e4af.init();
+var prevRefreshReg = globalThis.$RefreshReg$;
+var prevRefreshSig = globalThis.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e4af.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "NavbarView", ()=>NavbarView);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _navbarViewScss = require("./navbar-view.scss");
+const NavbarView = ({ user, onLoggedOut })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
+        className: "navbar",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "navbar-brand",
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                    children: "myFlix"
+                }, void 0, false, {
+                    fileName: "src/components/navbar-view/navbar-view.jsx",
+                    lineNumber: 8,
+                    columnNumber: 17
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/components/navbar-view/navbar-view.jsx",
+                lineNumber: 7,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "navbar-menu",
+                children: user && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                            className: "navbar-welcome",
+                            children: [
+                                "Welcome, ",
+                                user.username
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/components/navbar-view/navbar-view.jsx",
+                            lineNumber: 13,
+                            columnNumber: 25
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                            className: "navbar-button",
+                            onClick: onLoggedOut,
+                            children: "Sign Out"
+                        }, void 0, false, {
+                            fileName: "src/components/navbar-view/navbar-view.jsx",
+                            lineNumber: 14,
+                            columnNumber: 25
+                        }, undefined)
+                    ]
+                }, void 0, true)
+            }, void 0, false, {
+                fileName: "src/components/navbar-view/navbar-view.jsx",
+                lineNumber: 10,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/components/navbar-view/navbar-view.jsx",
+        lineNumber: 6,
+        columnNumber: 9
+    }, undefined);
+};
+_c = NavbarView;
+var _c;
+$RefreshReg$(_c, "NavbarView");
+
+  $parcel$ReactRefreshHelpers$e4af.postlude(module);
+} finally {
+  globalThis.$RefreshReg$ = prevRefreshReg;
+  globalThis.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"dVPUn","react":"jMk1U","./navbar-view.scss":"cYTZj","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk"}],"cYTZj":[function() {},{}],"lJZlQ":[function() {},{}]},["k32NT","gYcKb"], "gYcKb", "parcelRequireb4fc", {}, null, null, "http://localhost:1234")
 
 //# sourceMappingURL=CF3_client-side-programming-v2.ad93b51f.js.map
