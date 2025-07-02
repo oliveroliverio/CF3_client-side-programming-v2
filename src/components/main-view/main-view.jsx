@@ -25,7 +25,7 @@ export const MainView = () => {
                 setMovies(data);
             })
             .catch(error => console.error("Error fetching movies:", error));
-    }, []);
+    }, [token]);
 
 
     if (!user) {

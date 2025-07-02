@@ -25001,7 +25001,9 @@ const MainView = ()=>{
             console.log("Movie data structure:", JSON.stringify(data[0], null, 2));
             setMovies(data);
         }).catch((error)=>console.error("Error fetching movies:", error));
-    }, []);
+    }, [
+        token
+    ]);
     if (!user) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
