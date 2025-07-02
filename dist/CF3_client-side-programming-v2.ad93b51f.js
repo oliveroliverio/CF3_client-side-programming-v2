@@ -160,11 +160,11 @@
       });
     }
   }
-})({"k32NT":[function(require,module,exports,__globalThis) {
+})({"1E5Bt":[function(require,module,exports,__globalThis) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 1234;
-var HMR_SERVER_PORT = 1234;
+var HMR_PORT = null;
+var HMR_SERVER_PORT = 53386;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "439701173a9199ea";
 var HMR_USE_SSE = false;
@@ -28372,10 +28372,10 @@ const LoginView = ({ onLoggedIn })=>{
     const handleSubmit = (event)=>{
         event.preventDefault();
         const data = {
-            Username: username,
-            Password: password
+            username: username,
+            password: password
         };
-        fetch("https://myflix2-54ee4b2daeee.herokuapp.com/login", {
+        fetch("https://myflix2-54ee4b2daeee.herokuapp.com/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28460,6 +28460,6 @@ $RefreshReg$(_c, "LoginView");
   globalThis.$RefreshReg$ = prevRefreshReg;
   globalThis.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","react":"jMk1U"}],"lJZlQ":[function() {},{}]},["k32NT","gYcKb"], "gYcKb", "parcelRequireb4fc", {}, null, null, "http://localhost:1234")
+},{"react/jsx-dev-runtime":"dVPUn","@parcel/transformer-js/src/esmodule-helpers.js":"fB8r6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"iEizk","react":"jMk1U"}],"lJZlQ":[function() {},{}]},["1E5Bt","gYcKb"], "gYcKb", "parcelRequireb4fc", {}, null, null, "http://localhost:53386")
 
 //# sourceMappingURL=CF3_client-side-programming-v2.ad93b51f.js.map

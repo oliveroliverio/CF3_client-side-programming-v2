@@ -2,10 +2,22 @@
 
 ## API tests
 - curl command to get movies from heroku
-`curl -s -X GET -H "Content-Type: application/json" https://myflix2-54ee4b2daeee.herokuapp.com/movies | jq '.[] | {id, title}'`
+```
+curl -s -X GET -H "Content-Type: application/json" https://myflix2-54ee4b2daeee.herokuapp.com/movies | jq '.[] | {id, title}'
+```
 
 - curl command to get all users
-`curl -s -X GET -H "Content-Type: application/json" https://myflix2-54ee4b2daeee.herokuapp.com/users | jq '.[] | {id, username}'`
+```
+curl -s -X GET -H "Content-Type: application/json" https://myflix2-54ee4b2daeee.herokuapp.com/users | jq '.[] | {id, username}'
+```
 
+- curl command to get all users
+```
+curl -s -X GET -H "Content-Type: application/json" https://myflix2-54ee4b2daeee.herokuapp.com/users | jq '.[] | {id, username}'
+```
 
-## Issue of books still showing up in main view
+- curl command to login
+```
+curl -s -X POST -H "Content-Type: application/json" -d '{"username": "indielover", "password": "moonlightsonata"}' https://myflix2-54ee4b2daeee.herokuapp.com/users/login
+```
+
