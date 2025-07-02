@@ -3,3 +3,5 @@ node_modules
 images-md
 .cache
 .parcel-cache
+# dist directory
+/dist
