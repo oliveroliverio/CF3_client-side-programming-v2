@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavbarView } from "../navbar-view/navbar-view";
+import { Container, Row, Col } from 'react-bootstrap'
 
 export const MainView = () => {
     // const HEROKU_API_URL = process.env.HEROKU_API_URL;
@@ -82,15 +83,17 @@ export const MainView = () => {
                     setSelectedMovie={setSelectedMovie}
                 />
             ) : (
-                <div className="main-view">
-                    {movies.map((movie) => (
-                        <MovieCard
-                            key={movie._id}
-                            movie={movie}
-                            setSelectedMovie={setSelectedMovie}
-                        />
-                    ))}
-                </div>
+                <Container className="main-view">
+                    <Row className="justify-content-center">
+                        {movies.map((movie) => (
+                            <MovieCard
+                                key={movie._id}
+                                movie={movie}
+                                setSelectedMovie={setSelectedMovie}
+                            />
+                        ))}
+                    </Row>
+                </Container>
             )}
         </>
     );
