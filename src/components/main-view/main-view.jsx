@@ -1,6 +1,7 @@
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { useState, useEffect } from "react";
+import { LoginView } from "../login-view/login-view";
 
 export const MainView = () => {
     // const HEROKU_API_URL = process.env.HEROKU_API_URL;
@@ -8,6 +9,8 @@ export const MainView = () => {
 
     const [movies, setMovies] = useState([]);
     const [similarMovies, setSimilarMovies] = useState([]);
+    const [selectedMovie, setSelectedMovie] = useState(null);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         fetch(HEROKU_API_URL + '/movies')
@@ -19,7 +22,10 @@ export const MainView = () => {
             .catch(error => console.error("Error fetching movies:", error));
     }, []);
 
-    const [selectedMovie, setSelectedMovie] = useState(null);
+
+    if (!user) {
+        return <LoginView />;
+    }
 
     if (selectedMovie) {
         // Find movies with the same genre as the selected movie
