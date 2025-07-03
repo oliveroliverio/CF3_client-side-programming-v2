@@ -86,7 +86,7 @@ export const MainView = () => {
                 <Container fluid className="main-view py-5 px-4">
                     <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
                         {movies.map((movie) => (
-                            <Col key={movie._id}>
+                            <Col key={movie._id} xl={2}>
                                 <MovieCard
                                     movie={movie}
                                     setSelectedMovie={setSelectedMovie}

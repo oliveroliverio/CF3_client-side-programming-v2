@@ -6,7 +6,7 @@ export const MovieCard = ({ movie, setSelectedMovie }) => {
 
     return (
         <Card className="h-100 shadow-sm border-0 bg-light">
-            <div style={{ height: '350px', overflow: 'hidden' }} className="bg-secondary bg-opacity-10">
+            <div style={{ height: '280px', overflow: 'hidden' }} className="bg-secondary bg-opacity-10">
                 {imageUrl ? (
                     <Card.Img
                         variant="top"
@@ -20,22 +20,24 @@ export const MovieCard = ({ movie, setSelectedMovie }) => {
                     />
                 ) : (
                     <div className="d-flex justify-content-center align-items-center h-100 bg-light">
-                        <p className="text-muted fs-5">No image available</p>
+                        <p className="text-muted small">No image available</p>
                     </div>
                 )}
             </div>
-            <Card.Body className="d-flex flex-column p-3 p-lg-4">
-                <Card.Title className="mb-2 fs-5 fw-bold text-truncate">{movie.title}</Card.Title>
-                <Card.Text className="text-muted fs-6 mb-3">
-                    {movie.director?.name || <span className="fst-italic">Director unknown</span>}
+            <Card.Body className="d-flex flex-column p-2 p-md-3">
+                <Card.Title className="mb-1 fs-6 fw-bold text-truncate" title={movie.title}>
+                    {movie.title}
+                </Card.Title>
+                <Card.Text className="text-muted small mb-2">
+                    {movie.director?.name || <span className="fst-italic">Director N/A</span>}
                 </Card.Text>
                 <Button
                     variant="primary"
                     size="sm"
-                    className="mt-auto align-self-start"
+                    className="mt-auto align-self-stretch"
                     onClick={() => setSelectedMovie(movie)}
                 >
-                    View Details
+                    View
                 </Button>
             </Card.Body>
         </Card>
