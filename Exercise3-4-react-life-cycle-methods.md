@@ -150,7 +150,7 @@ Now, every time this new button is clicked, the current time will be changed and
 
 Each class component in React has a three-phase lifecycle: Start, Render, End.
 
-![Simple component timeline with start, render, and end](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/start-render-end.png)
+![Simple component timeline with start, render, and end](images-md/misc/start-render-end_1751498306772.png)
 
 
 ###### Figure 1.
@@ -172,7 +172,7 @@ Recall from the previous Props and State section that React uses the `constructo
 
 Let’s update the timeline to add the `constructor()` method into the mix:
 
-![Simple timeline with constructor, render, and end](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/constructor-render-end.png)
+![Simple timeline with constructor, render, and end](images-md/misc/constructor-render-end_1751498307212.png)
 
 
 ###### Figure 2.
@@ -208,7 +208,7 @@ export class Hello extends React.Component {
 
 When a component is “mounted,” it means that it’s fully rendered and has been added to the DOM, making it visible in the browser. Sometimes, you may want to execute some code right after the component is mounted. To do so, you can use the `componentDidMount()` method, which would come right after the `render()` method in the timeline:
 
-![Simple timeline with constructor, render, componentDidMount, and end](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/componentDidMount.png)
+![Simple timeline with constructor, render, componentDidMount, and end](images-md/misc/componentDidMount_1751498307381.png)
 
 
 ###### Figure 3.
@@ -295,7 +295,7 @@ As you can see in the previous example code, the `setInterval()` function return
 
 To refer back to the original lifecycle timeline in Figure 1, the “end” represents a component’s removal from the DOM. Thus, the `componentWillUnmount()` method should come directly before it (right before the component is removed from the DOM):
 
-![Simple timeline with constructor, render, componentDidMount, componentWillUnmount, and end](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/componentWillUnmount.png)
+![Simple timeline with constructor, render, componentDidMount, componentWillUnmount, and end](images-md/misc/componentWillUnmount_1751498307555.png)
 
 
 ###### Figure 4.
@@ -361,7 +361,7 @@ Also, notice that the audio is paused when the component is removed—or unmount
 
 Important to mention here is that any changes to the state and props will also prompt a render cycle (the `render()` method). So, whenever the `componentDidUpdate()` method is triggered, the `render()` method will be triggered as well. The following chart illustrates the full cycle:
 
-![Simple timeline with constructor, render, componentDidMount, componentDidUpdate, componentWillUnmount, and end](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/componentDidUpdate.png)
+![Simple timeline with constructor, render, componentDidMount, componentDidUpdate, componentWillUnmount, and end](images-md/misc/componentDidUpdate_1751498307792.png)
 
 
 ###### Figure 5.
@@ -448,7 +448,7 @@ useEffect(() => {
 
 If you open the browser console, you should see an entry with the actual `json` response from the API.
 
-![A `json` response from the API in the console.](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/console-json-response.png)
+![A `json` response from the API in the console.](images-md/misc/console-json-response_1751498308147.png)
 
 
 ###### Figure 6. A json response from the API in the console.
@@ -489,7 +489,7 @@ This newly added piece of code takes the `json` response and extracts the inform
 
 Now, you should see the list of books from the API in the preview window. This means the data has been successfully fetched from the API and is being rendered in each `BookCard` component in `MainView`. If you click on one of the `BookCard` components, the API has also populated the `BookView` components with the data you want to display. Awesome!
 
-![A list of books from the API in the preview window](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/books-list-API-fetch.png)
+![A list of books from the API in the preview window](images-md/misc/books-list-API-fetch_1751498308361.png)
 
 
 ###### Figure 8. If your screen looks like this, your data in being successfully rendered in MainView!
@@ -520,7 +520,7 @@ export const BookCard = ({ book, onBookClick }) => {
 
 There are two props in this code: one object (`book`) and one function (`onBookClick`). If either of these isn't passed through the props, however, there will be no warning, and you'll face a runtime error (i.e., the page will “crash”). You might then receive an error message similar to Figure 9, telling you that the component is trying to call the `onClick` function (like your `onBookClick` function), which hasn’t been defined yet:
 
-![Warning message in the console indicating that the `onClick` function is undefined](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/propType-onClick-error.png)
+![Warning message in the console indicating that the `onClick` function is undefined](images-md/misc/propType-onClick-error_1751498308751.png)
 
 
 ###### Figure 9. You’ll get a warning message like this if your function is undefined.
@@ -576,7 +576,7 @@ Here, you set the static `PropTypes` property on `BookCard` to an object that co
 
 Based on this, if the `onBookClick` function isn't passed as a prop to the `BookCard` component, it will immediately display a warning in the console upon running the app. Try omitting the `onBookClick` prop you passed in `main-view.jsx` to `<BookCard />` to see the error message. It should look like this:
 
-![A warning message saying that the `onBookClick` function wasn’t passed as a prop ](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/propType-onBookClick-undefined.png)
+![A warning message saying that the `onBookClick` function wasn’t passed as a prop ](images-md/misc/propType-onBookClick-undefined_1751498308983.png)
 
 
 ###### Figure 10. This warning message will appear if your function didn’t pass as a prop.
@@ -762,7 +762,7 @@ Using what you’ve learned about components, props, and Hooks, display “simil
 - Use the .filter() method for filtering an array based on genre name. You can read more about the filter() method here.
 - Before rendering the list of similar movies, try adding some spacing that separates <MovieView /> from similarMovies. You could use elements like <hr /> or <br /> followed by a heading, something like this:
 
-![Similar Movies written in code with various elements used for spacing](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/bonus-similarmovies-h2.png)
+![Similar Movies written in code with various elements used for spacing](images-md/misc/bonus-similarmovies-h2_1751498309232.png)
 
 
 ###### Figure 11. Possible spacing option using a variety of elements and a heading.
@@ -772,7 +772,7 @@ Using what you’ve learned about components, props, and Hooks, display “simil
 - There, you can reuse your MovieCard component yet again. Render a <MovieCard /> for each movie in the .map() loop, similarly to how you rendered movies list as  <MovieCards/ > back in the previous Exercise. Note that you must pass both required props: onMovieClick and movie, as well as the key={xxxxx._id} attribute-value to avoid getting the related error.
 - Generally, here’s how the code should look:
 
-![Correctly written code to display similar movies](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.4/bonus-similarmovies-code.png)
+![Correctly written code to display similar movies](images-md/misc/bonus-similarmovies-code_1751498309403.png)
 
 
 ###### Figure 12. Check your code to see how it stacks up!
@@ -783,21 +783,21 @@ Rubric
 
 Refer to the categories below to see how to meet the requirements of the approved stage
 
-![](https://cdn.careerfoundry.com/assets/rubrics/not_yet-c9fb80e521507759d546f847f8a65a00c66f2c8ec7ece4e37f98c25aa122778c.svg)
+![](images-md/icons/not_yet-c9fb80e521507759d546f847f8a65a00c66f2c8ec7ece4e37f98c25aa122778c_1751498309656.svg)
 
 
 - MainView not fetching movie data from the myFlix API and still using a hardcoded movie array in movies state; OR
 - Pull request shared and includes attempt to connect API to React app; BUT
 - MainView not able to fetch and render movie data from myFlix API
 
-![](https://cdn.careerfoundry.com/assets/rubrics/almost_there-f4bb1c077a0a826e7d4e3ecb72859fc401d362d9bd49c0658f4fd85c4a047a87.svg)
+![](images-md/icons/almost_there-f4bb1c077a0a826e7d4e3ecb72859fc401d362d9bd49c0658f4fd85c4a047a87_1751498310074.svg)
 
 
 - Pull request shared and includes attempt to connect API to React app; AND
 - MainView is able to fetch and render movie data from myFlix API; BUT
 - Slight syntax errors are preventing the movie data from rendering correctly in the React app’s UI
 
-![](https://cdn.careerfoundry.com/assets/rubrics/approved-7dfdcf59318cf52fcbd1333d8b71bf7a2bde35b6e0b753ac975349982495e0b4.svg)
+![](images-md/icons/approved-7dfdcf59318cf52fcbd1333d8b71bf7a2bde35b6e0b753ac975349982495e0b4_1751498310438.svg)
 
 
 - Pull request shared and includes attempt to connect API to React app;

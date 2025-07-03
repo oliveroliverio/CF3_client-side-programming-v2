@@ -1,18 +1,46 @@
 import PropTypes from 'prop-types';
+import { Card, Button } from 'react-bootstrap';
 
 export const MovieCard = ({ movie, setSelectedMovie }) => {
+    const imageUrl = movie.imageURL || movie.imageUrl;
+
     return (
-        <div
-            className="movie-card"
-            onClick={() => setSelectedMovie(movie)}
-        >
-            <div className="movie-poster">
-                <img src={movie.imageUrl} alt={movie.title} />
+        <Card className="h-100 shadow-sm border-0 bg-light">
+            <div style={{ height: '280px', overflow: 'hidden' }} className="bg-secondary bg-opacity-10">
+                {imageUrl ? (
+                    <Card.Img
+                        variant="top"
+                        src={imageUrl}
+                        alt={movie.title}
+                        className="w-100 h-100 object-fit-cover"
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = 'https://via.placeholder.com/300x450?text=No+Image';
+                        }}
+                    />
+                ) : (
+                    <div className="d-flex justify-content-center align-items-center h-100 bg-light">
+                        <p className="text-muted small">No image available</p>
+                    </div>
+                )}
             </div>
-            <div className="movie-title">
-                <h2>{movie.title}</h2>
-            </div>
-        </div>
+            <Card.Body className="d-flex flex-column p-2 p-md-3">
+                <Card.Title className="mb-1 fs-6 fw-bold text-truncate" title={movie.title}>
+                    {movie.title}
+                </Card.Title>
+                <Card.Text className="text-muted small mb-2">
+                    {movie.director?.name || <span className="fst-italic">Director N/A</span>}
+                </Card.Text>
+                <Button
+                    variant="primary"
+                    size="sm"
+                    className="mt-auto align-self-stretch"
+                    onClick={() => setSelectedMovie(movie)}
+                >
+                    View
+                </Button>
+            </Card.Body>
+        </Card>
     );
 };
 

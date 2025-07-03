@@ -9,7 +9,7 @@ When submitting your repository to your instructor, it's important to exclude la
 cd /Users/mbp16-oo/Downloads/z-dev/___DVW-CareerFoundry/CF3_client-side-programming-v2
 
 # Create a zip file excluding unnecessary directories
-zip -r myflix-client-api-integration.zip . -x "node_modules/*" ".parcel-cache/*" "dist/*" ".git/*" ".DS_Store" "*.log"
+zip -r myflix-client-api-integration.zip . -x "node_modules/*" ".parcel-cache/*" "dist/*" ".git/*" ".DS_Store" "*.log" "images-md/*"
 ```
 
 This command creates a zip file that includes all files and directories except those specified after the `-x` flag.

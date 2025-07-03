@@ -200,7 +200,7 @@ In this last bit of code, you can see a callback for the `onSubmit` event of for
 
 If you write this code in your own CodeSandbox, you’ll get an error stating that `username` and `password` aren’t defined!
 
-![An error message displayed in CodeSandbox explaining that username and password are undefined](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.5/username-password-notdefined.png)
+![An error message displayed in CodeSandbox explaining that username and password are undefined](images-md/misc/username-password-notdefined_1751498310932.png)
 
 
 ###### Figure 1. Error notifications from CodeSandbox will let you know if any parts of your code are undefined.
@@ -339,7 +339,7 @@ For example, you could add a button like this in your `main-view.jsx` file:
 <button onClick={() => { setUser(null); }}>Logout</button>
 ```
 
-![MainView featuring a new logout button](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.5/logout-button-mainview.png)
+![MainView featuring a new logout button](images-md/icons/logout-button-mainview_1751498311115.png)
 
 
 ###### Figure 2. Adding the previous code will create a shiny new logout button directly in MainView!
@@ -580,7 +580,7 @@ if (!user) {
 
 This will give the user the option to either log in or sign up once the app loads. Note that, for now, your signup option is just a button—you’ll change that in a moment.
 
-![MainView displaying the login function, with spaces to enter a username and password and a submit button](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.5/login-signup-options.png)
+![MainView displaying the login function, with spaces to enter a username and password and a submit button](images-md/auth/login-signup-options_1751498311299.png)
 
 
 ###### Figure 4. The login form in MainView.
@@ -646,7 +646,7 @@ export const SignupView = () => {
 
 Note how the `types` were used to help the browser display the correct element; for example, the `input` for `birthday` has a date picker as well as built-in validation.
 
-![MainView displaying the login and signup functions, with spaces to enter a username, password, email address, and birthdate](https://images.careerfoundry.com/public/courses/fullstack-immersion/A3/3.5/login-signup-forms.png)
+![MainView displaying the login and signup functions, with spaces to enter a username, password, email address, and birthdate](images-md/auth/login-signup-forms_1751498311529.png)
 
 
 ###### Figure 5. The login and signup forms in MainView.
@@ -777,21 +777,21 @@ Rubric
 
 Refer to the categories below to see how to meet the requirements of the approved stage
 
-![](https://cdn.careerfoundry.com/assets/rubrics/not_yet-c9fb80e521507759d546f847f8a65a00c66f2c8ec7ece4e37f98c25aa122778c.svg)
+![](images-md/icons/not_yet-c9fb80e521507759d546f847f8a65a00c66f2c8ec7ece4e37f98c25aa122778c_1751498311778.svg)
 
 
 - Creation of new form component files attempted; BUT
 - Form component files unsuccessfully integrated into app; OR
 - Forms incomplete or contain major errors, e.g., no validation or authentication measures applied
 
-![](https://cdn.careerfoundry.com/assets/rubrics/almost_there-f4bb1c077a0a826e7d4e3ecb72859fc401d362d9bd49c0658f4fd85c4a047a87.svg)
+![](images-md/icons/almost_there-f4bb1c077a0a826e7d4e3ecb72859fc401d362d9bd49c0658f4fd85c4a047a87_1751498311808.svg)
 
 
 - Creation of new form component files attempted; AND
 - Form component files successfully integrated into app; BUT
 - Forms contain minor syntax errors
 
-![](https://cdn.careerfoundry.com/assets/rubrics/approved-7dfdcf59318cf52fcbd1333d8b71bf7a2bde35b6e0b753ac975349982495e0b4.svg)
+![](images-md/icons/approved-7dfdcf59318cf52fcbd1333d8b71bf7a2bde35b6e0b753ac975349982495e0b4_1751498311836.svg)
 
 
 - Creation of new form component files successful;

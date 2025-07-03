@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavbarView } from "../navbar-view/navbar-view";
+import { Container, Row, Col } from 'react-bootstrap'
 
 export const MainView = () => {
     // const HEROKU_API_URL = process.env.HEROKU_API_URL;
@@ -82,15 +83,18 @@ export const MainView = () => {
                     setSelectedMovie={setSelectedMovie}
                 />
             ) : (
-                <div className="main-view">
-                    {movies.map((movie) => (
-                        <MovieCard
-                            key={movie._id}
-                            movie={movie}
-                            setSelectedMovie={setSelectedMovie}
-                        />
-                    ))}
-                </div>
+                <Container fluid className="main-view py-5 px-4">
+                    <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+                        {movies.map((movie) => (
+                            <Col key={movie._id} xl={2}>
+                                <MovieCard
+                                    movie={movie}
+                                    setSelectedMovie={setSelectedMovie}
+                                />
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
             )}
         </>
     );

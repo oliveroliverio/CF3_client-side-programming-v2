@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Form, Button, Card, Container, Row, Col, Alert } from 'react-bootstrap';
 
 export const SignupView = () => {
     const [username, setUsername] = useState("");
@@ -53,49 +54,59 @@ export const SignupView = () => {
     };
 
     return (
-        <>
-            <h1>Signup</h1>
-            {error && <div className="alert alert-danger">{error}</div>}
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                        minLength="3"
-                    />
-                </label>
-                <label>
-                    Password:
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Email:
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Birthday:
-                    <input
-                        type="date"
-                        value={birthday}
-                        onChange={(e) => setBirthday(e.target.value)}
-                        required
-                    />
-                </label>
-                <button type="submit">Submit</button>
-            </form>
-        </>
+        <Container>
+            <Row className="justify-content-center">
+                <Col md={6}>
+                    <Card className="mt-3">
+                        <Card.Body>
+                            <Card.Title>Sign Up</Card.Title>
+                            {error && <Alert variant="danger">{error}</Alert>}
+                            <Form onSubmit={handleSubmit}>
+                                <Form.Group controlId="formUsername">
+                                    <Form.Label>Username:</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        value={username}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                        required
+                                        minLength="3"
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formPassword" className="mt-3">
+                                    <Form.Label>Password:</Form.Label>
+                                    <Form.Control
+                                        type="password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formEmail" className="mt-3">
+                                    <Form.Label>Email:</Form.Label>
+                                    <Form.Control
+                                        type="email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </Form.Group>
+                                <Form.Group controlId="formBirthday" className="mt-3">
+                                    <Form.Label>Birthday:</Form.Label>
+                                    <Form.Control
+                                        type="date"
+                                        value={birthday}
+                                        onChange={(e) => setBirthday(e.target.value)}
+                                        required
+                                    />
+                                </Form.Group>
+                                <Button variant="primary" type="submit" className="mt-3">
+                                    Submit
+                                </Button>
+                            </Form>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
     );
 };
