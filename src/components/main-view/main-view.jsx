@@ -83,14 +83,15 @@ export const MainView = () => {
                     setSelectedMovie={setSelectedMovie}
                 />
             ) : (
-                <Container className="main-view">
-                    <Row className="justify-content-center">
+                <Container fluid className="main-view py-5 px-4">
+                    <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
                         {movies.map((movie) => (
-                            <MovieCard
-                                key={movie._id}
-                                movie={movie}
-                                setSelectedMovie={setSelectedMovie}
-                            />
+                            <Col key={movie._id}>
+                                <MovieCard
+                                    movie={movie}
+                                    setSelectedMovie={setSelectedMovie}
+                                />
+                            </Col>
                         ))}
                     </Row>
                 </Container>
