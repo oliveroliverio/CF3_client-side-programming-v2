@@ -6,6 +6,7 @@ import { SignupView } from "../signup-view/signup-view";
 import { NavbarView } from "../navbar-view/navbar-view";
 import { Container, Row, Col } from 'react-bootstrap'
 import axios from "axios";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
     // const HEROKU_API_URL = process.env.HEROKU_API_URL;
@@ -66,36 +67,94 @@ export const MainView = () => {
     }
 
     return (
-        <>
+        <BrowserRouter>
             <NavbarView user={user} onLoggedOut={handleLogout} />
-
-            {selectedMovie ? (
-                <MovieView
-                    selectedMovie={selectedMovie}
-                    onBackClick={() => setSelectedMovie(null)}
-                    similarMovies={movies.filter(movie =>
-                        // Don't include the current movie
-                        movie._id !== selectedMovie._id &&
-                        // Match on genre
-                        movie.genre && selectedMovie.genre &&
-                        movie.genre.name === selectedMovie.genre.name
-                    ).slice(0, 5)} // Limit to 5 similar movies
-                    setSelectedMovie={setSelectedMovie}
-                />
-            ) : (
-                <Container fluid className="main-view py-5 px-4">
-                    <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
-                        {movies.map((movie) => (
-                            <Col key={movie._id} xl={2}>
-                                <MovieCard
-                                    movie={movie}
+            <Container fluid className="main-view py-5 px-4">
+                <Routes>
+                    <Route
+                        path="/login"
+                        element={
+                            !user ? (
+                                <Row className="justify-content-center">
+                                    <Col md={5} className="text-center">
+                                        <LoginView
+                                            onLoggedIn={(user, token) => {
+                                                setUser(user);
+                                                setToken(token);
+                                            }}
+                                        />
+                                        <div className="mt-3">or</div>
+                                        <SignupView />
+                                    </Col>
+                                </Row>
+                            ) : (
+                                <Navigate to="/" replace />
+                            )
+                        }
+                    />
+                    <Route
+                        path="/signup"
+                        element={
+                            !user ? (
+                                <Row className="justify-content-center">
+                                    <Col md={5}>
+                                        <SignupView />
+                                    </Col>
+                                </Row>
+                            ) : (
+                                <Navigate to="/" replace />
+                            )
+                        }
+                    />
+                    <Route
+                        path="/movies/:movieId"
+                        element={
+                            !user ? (
+                                <Navigate to="/login" replace />
+                            ) : !selectedMovie ? (
+                                <Navigate to="/" replace />
+                            ) : (
+                                <MovieView
+                                    selectedMovie={selectedMovie}
+                                    onBackClick={() => navigate('/')}
+                                    similarMovies={movies.filter(movie =>
+                                        movie._id !== selectedMovie._id &&
+                                        movie.genre && selectedMovie.genre &&
+                                        movie.genre.name === selectedMovie.genre.name
+                                    ).slice(0, 5)}
                                     setSelectedMovie={setSelectedMovie}
                                 />
-                            </Col>
-                        ))}
-                    </Row>
-                </Container>
-            )}
-        </>
+                            )
+                        }
+                    />
+                    <Route
+                        path="/"
+                        element={
+                            !user ? (
+                                <Navigate to="/login" replace />
+                            ) : movies.length === 0 ? (
+                                <div>No movies found</div>
+                            ) : (
+                                <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
+                                    {movies.map((movie) => (
+                                        <Col
+                                            key={movie._id}
+                                            xl={2}
+                                            onClick={() => navigate(`/movies/${movie._id}`)}
+                                            style={{ cursor: 'pointer' }}
+                                        >
+                                            <MovieCard
+                                                movie={movie}
+                                                setSelectedMovie={setSelectedMovie}
+                                            />
+                                        </Col>
+                                    ))}
+                                </Row>
+                            )
+                        }
+                    />
+                </Routes>
+            </Container>
+        </BrowserRouter>
     );
 };
