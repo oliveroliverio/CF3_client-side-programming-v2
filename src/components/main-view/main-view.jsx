@@ -5,6 +5,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavbarView } from "../navbar-view/navbar-view";
 import { Container, Row, Col } from 'react-bootstrap'
+import axios from "axios";
 
 export const MainView = () => {
     // const HEROKU_API_URL = process.env.HEROKU_API_URL;
@@ -29,15 +30,14 @@ export const MainView = () => {
 
     useEffect(() => {
         if (!token) return;
-        fetch(HEROKU_API_URL + '/movies', {
+        axios.get(`${HEROKU_API_URL}/movies`, {
             headers: { Authorization: `Bearer ${token}` }
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log("Movie data structure:", JSON.stringify(data[0], null, 2));
-                setMovies(data);
+            .then(res => {
+                console.log("Movie data structure:", res.data[0]);
+                setMovies(res.data);
             })
-            .catch(error => console.error("Error fetching movies:", error));
+            .catch(err => console.error("Error fetching movies:", err));
     }, [token]);
 
     const handleLogout = () => {
