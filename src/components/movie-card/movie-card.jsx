@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import { Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-export const MovieCard = ({ movie, setSelectedMovie }) => {
+export const MovieCard = ({ movie }) => {
     const imageUrl = movie.imageURL || movie.imageUrl;
+    const navigate = useNavigate();
 
     return (
         <Card className="h-100 shadow-sm border-0 bg-light">
@@ -35,7 +37,7 @@ export const MovieCard = ({ movie, setSelectedMovie }) => {
                     variant="primary"
                     size="sm"
                     className="mt-auto align-self-stretch"
-                    onClick={() => setSelectedMovie(movie)}
+                    onClick={() => navigate(`/movies/${movie._id}`)}
                 >
                     View
                 </Button>
@@ -55,6 +57,5 @@ MovieCard.propTypes = {
         genre: PropTypes.object,
         director: PropTypes.object,
         description: PropTypes.string
-    }).isRequired,
-    setSelectedMovie: PropTypes.func.isRequired
+    }).isRequired
 };

@@ -9,13 +9,10 @@ import axios from "axios";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 export const MainView = () => {
-    // const HEROKU_API_URL = process.env.HEROKU_API_URL;
-    const HEROKU_API_URL = "https://myflix2-54ee4b2daeee.herokuapp.com"
+    const HEROKU_API_URL = "https://myflix2-54ee4b2daeee.herokuapp.com";
     const navigate = useNavigate();
 
     const [movies, setMovies] = useState([]);
-    const [similarMovies, setSimilarMovies] = useState([]);
-    const [selectedMovie, setSelectedMovie] = useState(null);
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
 
@@ -32,21 +29,25 @@ export const MainView = () => {
 
     useEffect(() => {
         if (!token) return;
-        axios.get(`${HEROKU_API_URL}/movies`, {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then(res => {
-                console.log("Movie data structure:", res.data[0]);
-                setMovies(res.data);
-            })
-            .catch(err => console.error("Error fetching movies:", err));
+
+        const fetchMovies = async () => {
+            try {
+                const response = await axios.get(`${HEROKU_API_URL}/movies`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                setMovies(response.data);
+            } catch (err) {
+                console.error("Error fetching movies:", err);
+            }
+        };
+
+        fetchMovies();
     }, [token]);
 
     const handleLogout = () => {
         // Clear user data from state
         setUser(null);
         setToken(null);
-        setSelectedMovie(null);
         setMovies([]);
 
         // Clear localStorage
@@ -56,14 +57,18 @@ export const MainView = () => {
 
     if (!user) {
         return (
-            <>
-                <LoginView onLoggedIn={(user, token) => {
-                    setUser(user);
-                    setToken(token);
-                }} />
-                or
-                <SignupView />
-            </>
+            <Container className="mt-5">
+                <Row className="justify-content-center">
+                    <Col md={5} className="text-center">
+                        <LoginView onLoggedIn={(user, token) => {
+                            setUser(user);
+                            setToken(token);
+                        }} />
+                        <div className="mt-3">or</div>
+                        <SignupView />
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 
@@ -112,19 +117,8 @@ export const MainView = () => {
                         element={
                             !user ? (
                                 <Navigate to="/login" replace />
-                            ) : !selectedMovie ? (
-                                <Navigate to="/" replace />
                             ) : (
-                                <MovieView
-                                    selectedMovie={selectedMovie}
-                                    onBackClick={() => navigate('/')}
-                                    similarMovies={movies.filter(movie =>
-                                        movie._id !== selectedMovie._id &&
-                                        movie.genre && selectedMovie.genre &&
-                                        movie.genre.name === selectedMovie.genre.name
-                                    ).slice(0, 5)}
-                                    setSelectedMovie={setSelectedMovie}
-                                />
+                                <MovieView />
                             )
                         }
                     />
@@ -138,16 +132,8 @@ export const MainView = () => {
                             ) : (
                                 <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
                                     {movies.map((movie) => (
-                                        <Col
-                                            key={movie._id}
-                                            xl={2}
-                                            onClick={() => navigate(`/movies/${movie._id}`)}
-                                            style={{ cursor: 'pointer' }}
-                                        >
-                                            <MovieCard
-                                                movie={movie}
-                                                setSelectedMovie={setSelectedMovie}
-                                            />
+                                        <Col key={movie._id} xl={2}>
+                                            <MovieCard movie={movie} />
                                         </Col>
                                     ))}
                                 </Row>
