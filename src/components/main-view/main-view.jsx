@@ -5,6 +5,7 @@ import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavbarView } from "../navbar-view/navbar-view";
 import { Container, Row, Col } from 'react-bootstrap'
+import { ProfileView } from "../profile-view/profile-view";
 import axios from "axios";
 import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
@@ -133,14 +134,30 @@ export const MainView = () => {
                                 <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
                                     {movies.map((movie) => (
                                         <Col key={movie._id} xl={2}>
-                                            <MovieCard movie={movie} />
+                                            <MovieCard movie={movie} user={user} token={token} />
                                         </Col>
                                     ))}
                                 </Row>
                             )
                         }
                     />
+                    <Route
+                        path="/profile"
+                        element={
+                            !user ? (
+                                <Navigate to="/login" replace />
+                            ) : (
+                                <ProfileView
+                                    user={user}
+                                    token={token}
+                                    movies={movies}
+                                    onUserUpdate={(updatedUser) => setUser(updatedUser)}
+                                />
+                            )
+                        }
+                    />
                 </Routes>
+
             </Container>
         </>
     );
