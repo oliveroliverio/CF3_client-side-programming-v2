@@ -6,11 +6,12 @@ import { SignupView } from "../signup-view/signup-view";
 import { NavbarView } from "../navbar-view/navbar-view";
 import { Container, Row, Col } from 'react-bootstrap'
 import axios from "axios";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 
 export const MainView = () => {
     // const HEROKU_API_URL = process.env.HEROKU_API_URL;
     const HEROKU_API_URL = "https://myflix2-54ee4b2daeee.herokuapp.com"
+    const navigate = useNavigate();
 
     const [movies, setMovies] = useState([]);
     const [similarMovies, setSimilarMovies] = useState([]);
@@ -67,7 +68,7 @@ export const MainView = () => {
     }
 
     return (
-        <BrowserRouter>
+        <>
             <NavbarView user={user} onLoggedOut={handleLogout} />
             <Container fluid className="main-view py-5 px-4">
                 <Routes>
@@ -155,6 +156,6 @@ export const MainView = () => {
                     />
                 </Routes>
             </Container>
-        </BrowserRouter>
+        </>
     );
 };

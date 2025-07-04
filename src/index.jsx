@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { MainView } from './components/main-view/main-view';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter } from 'react-router-dom';
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
@@ -8,10 +9,12 @@ import './index.scss';
 // Main component
 const MyFlixApp = () => {
     return (
-        <div className="my-flix">
-            <h1>MyFlix App Frontend</h1>
-            <MainView />
-        </div>
+        <BrowserRouter>
+            <div className="my-flix">
+                <h1>MyFlix App Frontend</h1>
+                <MainView />
+            </div>
+        </BrowserRouter>
     );
 };
 
