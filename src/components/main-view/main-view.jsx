@@ -134,7 +134,7 @@ export const MainView = () => {
                                 <Row className="row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4">
                                     {movies.map((movie) => (
                                         <Col key={movie._id} xl={2}>
-                                            <MovieCard movie={movie} user={user} token={token} />
+                                            <MovieCard movie={movie} user={user} token={token} onUserUpdate={(updatedUser) => setUser(updatedUser)} />
                                         </Col>
                                     ))}
                                 </Row>

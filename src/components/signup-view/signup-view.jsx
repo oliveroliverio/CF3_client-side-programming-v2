@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, Button, Card, Container, Row, Col, Alert } from 'react-bootstrap';
+import axios from 'axios';
 
 export const SignupView = () => {
     const [username, setUsername] = useState("");
@@ -21,35 +22,41 @@ export const SignupView = () => {
 
         console.log("Sending signup data:", data);
 
-        fetch("https://myflix2-54ee4b2daeee.herokuapp.com/users", {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then((response) => {
+        // Format birthday in YYYY-MM-DD format if it's not already
+        if (data.birthday) {
+            data.birthday = new Date(data.birthday).toISOString().split('T')[0];
+        }
+
+        axios.post("https://myflix2-54ee4b2daeee.herokuapp.com/users", data)
+            .then(response => {
                 console.log("Signup response status:", response.status);
-                if (response.ok) {
-                    return response.json().then(data => {
-                        console.log("Signup successful:", data);
-                        alert("Signup successful");
-                        window.location.reload();
-                    });
-                } else {
-                    // Try to get error message from response
-                    return response.json().then(err => {
-                        console.error("Signup error:", err);
-                        setError(err.error || "Signup failed");
-                    }).catch(e => {
-                        console.error("Error parsing response:", e);
-                        setError(`Signup failed: ${response.status}`);
-                    });
-                }
+                console.log("Signup successful:", response.data);
+                alert("Signup successful");
+                window.location.reload();
             })
-            .catch((e) => {
-                console.error("Fetch error:", e);
-                setError(`Network error: ${e.message}`);
+            .catch(error => {
+                console.error("Signup error:", error);
+                
+                // Handle different types of errors
+                if (error.response) {
+                    // The request was made and the server responded with a status code outside of 2xx
+                    console.error("Error response data:", error.response.data);
+                    console.error("Error response status:", error.response.status);
+                    
+                    // Extract error message from response
+                    const errorMessage = error.response.data && error.response.data.error 
+                        ? error.response.data.error 
+                        : `Signup failed: ${error.response.status}`;
+                    setError(errorMessage);
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    console.error("Error request:", error.request);
+                    setError("No response from server. Please try again later.");
+                } else {
+                    // Something happened in setting up the request
+                    console.error("Error message:", error.message);
+                    setError(`Network error: ${error.message}`);
+                }
             });
     };
 
