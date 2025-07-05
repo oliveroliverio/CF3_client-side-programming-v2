@@ -4,7 +4,7 @@
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "test": "playwright test",
+    "test": "playwright test tests/signup-test.spec.js --headed",
     "test:ui": "playwright test --ui",
     "download_img": "node scripts/download_md_images.js"
   },

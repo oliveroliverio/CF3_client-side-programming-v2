@@ -130,16 +130,16 @@ export const MovieCard = ({ movie, user, token, onUserUpdate }) => {
     );
 };
 
-// // Update PropTypes
-// MovieCard.propTypes = {
-//     movie: PropTypes.shape({
-//         title: PropTypes.string,
-//         imageUrl: PropTypes.string,
-//         _id: PropTypes.string,
-//         genre: PropTypes.object,
-//         director: PropTypes.object,
-//         description: PropTypes.string
-//     }).isRequired,
-//     user: PropTypes.object,
-//     token: PropTypes.string
-// };
+// Update PropTypes
+MovieCard.propTypes = {
+    movie: PropTypes.shape({
+        title: PropTypes.string,
+        imageUrl: PropTypes.string,
+        _id: PropTypes.string,
+        genre: PropTypes.object,
+        director: PropTypes.object,
+        description: PropTypes.string
+    }).isRequired,
+    user: PropTypes.array,
+    token: PropTypes.string
+};
